@@ -1,6 +1,3 @@
-#teste
-
-
 class Operacao:
 	A=None;
 	B=None;

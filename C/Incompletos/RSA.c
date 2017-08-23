@@ -32,9 +32,9 @@ int main(){
     scanf("%d",&tam);
     fraseC=criafraseC(tam);
     blocos=alpha2int(fraseC,tam,&quant_blocos,N);
-    /*Codificação*/
+    /*Codificaï¿½ï¿½o*/
     blocos=codificar(blocos,K,N,quant_blocos);
-    /*Decodificação*/
+    /*Decodificaï¿½ï¿½o*/
     blocos=decodificar(blocos,chaves,D,N,quant_blocos,quant_chaves);
     return 0;
 }
@@ -86,7 +86,7 @@ float *alpha2int(char *fraseC,int tam,int *quant_blocos,float N){
     /*transformand cada char em dois int, Ex: a=97 -> 9 e 7*/
     for(i=0;fraseC[i]!='\0';i++){
         if(fraseC[i]==' ') fraseC[i]=99;
-        else fraseC[i]-=87;
+        else fraseC[i]-=87; /*este -87 Ã© por causa da tabela ASCII, transforma a=10*/
         fraseN[j]=(fraseC[i]-(fraseC[i]%10))/10; /*algarismo da unidade da letra*/
         j++;
         fraseN[j]=fraseC[i]%10;/*algarismo da dezena da letra*/
@@ -104,7 +104,7 @@ float *alpha2int(char *fraseC,int tam,int *quant_blocos,float N){
             j++;
             temp[j]=fraseN[i];
             (*quant_blocos)++;
-            if(temp[j]==0){ /*se o proximo bloco começar com zero entao faça o zero separado 022 -> -0-22*/
+            if(temp[j]==0){ /*se o proximo bloco comeï¿½ar com zero entao faï¿½a o zero separado 022 -> -0-22*/
                 printf("%.0f-",temp[j]);
                 j++;
                 (*quant_blocos)+=1;
