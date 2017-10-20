@@ -6,7 +6,9 @@
         {
             "taskName": "C compile",
             "type": "shell",
-            "command": "gcc ${fileBasename} -o ${fileBasenameNoExtension} -ansi -Wall -pedantic"
+            "command": "gcc ${relativeFile}  -o ${fileBasenameNoExtension} -ansi -Wall -pedantic",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }
